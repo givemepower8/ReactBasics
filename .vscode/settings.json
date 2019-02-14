@@ -1,8 +1,12 @@
 {
     "cSpell.words": [
         "browserslist",
+        "linebreak",
+        "noopener",
+        "noreferrer",
         "precommit",
         "preflight",
-        "prettierrc"
+        "prettierrc",
+        "unmount"
     ]
 }
