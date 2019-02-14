@@ -67,12 +67,16 @@ Set the break points in the code, add the launch.json or it can be automatically
 
 `npm run build`
 
+Use [serve](https://www.npmjs.com/package/serve) as a static web server to start from the build folder.
+
 `npm install -g serve`
 
 `serve -s build`
 
 ## Samples
 
-After `npm start`, view the results in browser and check the code in the html.
+After `npm start`, click the link and view the results in browser. Check the code in the html.
+
+[simple like button](http://localhost:3000/samples/like_button.html)
 
 [tic tac toe](http://localhost:3000/samples/tictactoe.html)
