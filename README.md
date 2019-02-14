@@ -70,3 +70,9 @@ Set the break points in the code, add the launch.json or it can be automatically
 `npm install -g serve`
 
 `serve -s build`
+
+## Samples
+
+After `npm start`, view the results in browser and check the code in the html.
+
+[tic tac toe](http://localhost:3000/samples/tictactoe.html)
