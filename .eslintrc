@@ -8,6 +8,8 @@
                 "extensions": [".js", ".jsx"]
             }
         ],
+        "linebreak-style": 0,
+        "react/prefer-stateless-function": "off",
         "react/prop-types": 0,
         "no-underscore-dangle": 0,
         "import/imports-first": ["error", "absolute-first"],
