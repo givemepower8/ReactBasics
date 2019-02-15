@@ -53,6 +53,16 @@ You can create a .env file and add 'SKIP_PREFLIGHT_CHECK=true'
 
 React is for developing a single page application. `<App />` is root component. If there are different bounded domains / context, react-router can be used for routing.
 
+## Test
+
+`npm i @types/jest` and enable jest in .eslintrc
+
+```js
+"env": {
+    "jest": true
+}
+```
+
 ## Debugging
 
 Visual studio code supports to debug react app. Debugger for Chrome extension should be installed first.
