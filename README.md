@@ -27,7 +27,7 @@ in package.json
   },
 ```
 
-### Issues
+### Common Issues
 
 jsx formatting, in setting.json
 
@@ -52,6 +52,12 @@ You can create a .env file and add 'SKIP_PREFLIGHT_CHECK=true'
 ## Development
 
 React is for developing a single page application. `<App />` is root component. If there are different bounded domains / context, react-router can be used for routing.
+
+### React Router
+
+[React Router](https://github.com/ReactTraining/react-router)
+
+[React Router docs](https://reacttraining.com/react-router/web/guides/philosophy)
 
 ## Test
 
