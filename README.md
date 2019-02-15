@@ -27,6 +27,17 @@ in package.json
   },
 ```
 
+### Issues
+
+jsx formatting, in setting.json
+
+```js
+"beautify.ignore": [
+        "**/*.js",
+        "**/*.jsx"
+    ]
+```
+
 Sometimes you will see the following error:
 
 > There might be a problem with the project dependency tree.

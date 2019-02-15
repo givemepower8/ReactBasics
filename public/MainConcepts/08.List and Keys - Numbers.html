@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js" crossorigin></script>
+  <style>
+   
+  </style>
+</head>
+<body>
+    <div id="root">
+       
+    </div>
+
+    <script type="text/babel">
+   function ListItem(props) {
+      // There is no need to specify the key here:
+      return <li>{props.value}</li>;
+    }
+
+    function NumberList(props) {
+      const numbers = props.numbers;
+      const listItems = numbers.map((number) =>
+        // Key should be specified inside the array.
+        <ListItem key={number.toString()}
+                  value={number} />
+
+      );
+      return (
+        <ul>
+          {listItems}
+        </ul>
+      );
+    }
+
+    const numbers = [1, 2, 3, 4, 5];
+    ReactDOM.render(
+      <NumberList numbers={numbers} />,
+      document.getElementById('root')
+    );
+
+    </script>
+</body>
+</html>
