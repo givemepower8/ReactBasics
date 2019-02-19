@@ -39,12 +39,12 @@
             <div>
                 <h2>Tacos</h2>
                 <ul>
-                <li>
-                    <Link to="/tacos/bus">Bus</Link>
-                </li>
-                <li>
-                    <Link to="/tacos/cart">Cart</Link>
-                </li>
+                    <li>
+                        <Link to="/tacos/bus">Bus</Link>
+                    </li>
+                    <li>
+                        <Link to="/tacos/cart">Cart</Link>
+                    </li>
                 </ul>
 
                 {routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
@@ -65,14 +65,14 @@
                 path: "/tacos",
                 component: Tacos,
                 routes: [
-                {
-                    path: "/tacos/bus",
-                    component: Bus
-                },
-                {
-                    path: "/tacos/cart",
-                    component: Cart
-                }
+                    {
+                        path: "/tacos/bus",
+                        component: Bus
+                    },
+                    {
+                        path: "/tacos/cart",
+                        component: Cart
+                    }
                 ]
             }
         ];
@@ -83,8 +83,8 @@
             <Route
                 path={route.path}
                 render={props => (
-                // pass the sub-routes down to keep nesting
-                <route.component {...props} routes={route.routes} />
+                    // pass the sub-routes down to keep nesting
+                    <route.component {...props} routes={route.routes} />
                 )}
             />
         );
@@ -94,10 +94,10 @@
                 <div>
                 <ul>
                     <li>
-                    <Link to="/tacos">Tacos</Link>
+                        <Link to="/tacos">Tacos</Link>
                     </li>
                     <li>
-                    <Link to="/sandwiches">Sandwiches</Link>
+                        <Link to="/sandwiches">Sandwiches</Link>
                     </li>
                 </ul>
 

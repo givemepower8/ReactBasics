@@ -93,15 +93,15 @@
 
             return (
                 <div>
-                <h3>{person.name}'s Friends</h3>
-                <ul>
-                    {person.friends.map(id => (
-                    <li key={id}>
-                        <Link to={`${match.url}/ReactRouter/${id}`}>{find(id).name}</Link>
-                    </li>
-                    ))}
-                </ul>
-                <Route path={`${match.url}/ReactRouter/:id`} component={Person} />
+                    <h3>{person.name}'s Friends</h3>
+                    <ul>
+                        {person.friends.map(id => (
+                            <li key={id}>
+                                <Link to={`${match.url}/ReactRouter/${id}`}>{find(id).name}</Link>
+                            </li>
+                        ))}
+                    </ul>
+                    <Route path={`${match.url}/ReactRouter/:id`} component={Person} />
                 </div>
             );
         };
