@@ -2,12 +2,14 @@
     "cSpell.words": [
         "browserslist",
         "crossorigin",
+        "lifecycle",
         "linebreak",
         "noopener",
         "noreferrer",
         "precommit",
         "preflight",
         "prettierrc",
+        "reactjs",
         "unmount"
     ]
 }

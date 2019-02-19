@@ -1,10 +1,42 @@
 # React Basics
 
+You can run the samples locally. Also the site is hosted on [http://reactbasics.gingerstudio.net](http://reactbasics.gingerstudio.net).
+
+## Samples
+
+After `npm start`, click the link and view the results in browser. Check the code in the html.
+
+- [Like button](http://localhost:3000/samples/like_button.html)
+- [tic tac toe game](http://localhost:3000/samples/tictactoe.html) is from [reactjs tutorial](https://reactjs.org/tutorial/tutorial.html)
+
+Main concepts on [reactjs docs](https://reactjs.org/docs/)
+
+- [01.Hello World](http://localhost:3000/mainconcepts/01.HelloWorld.html)
+- [02.Introducing JSX](http://localhost:3000/mainconcepts/02.IntroducingJSX.html)
+- [03.Rendering Elements](http://localhost:3000/mainconcepts/03.RenderingElements.html)
+- [04.Components and Props](http://localhost:3000/mainconcepts/04.ComponentsAndProps.html)
+- [05.State and Lifecycle - Clock](http://localhost:3000/mainconcepts/05.StateAndLifecycleClock.html)
+- [06.Handling Events Toggle](http://localhost:3000/mainconcepts/06.HandlingEventsToggle.html)
+- [07.Conditional Rendering](http://localhost:3000/mainconcepts/07.ConditionalRendering.html)
+- [08.List and Keys - Blog](http://localhost:3000/mainconcepts/08.ListAndKeysBlog.html)
+- [08.List and Keys - Numbers](http://localhost:3000/mainconcepts/08.ListAndKeysNumbers.html)
+- [09.Forms Multiple Inputs](http://localhost:3000/mainconcepts/09.FormsMultipleInputs.html)
+- [09.Forms - Select](http://localhost:3000/mainconcepts/09.FormsSelect.html)
+- [10.Lifting State Up](http://localhost:3000/mainconcepts/10.LiftingStateUp.html)
+- [11.Composition vs Inheritance](http://localhost:3000/mainconcepts/11.CompositionVsInheritance.html)
+- [12.Thinking in React](http://localhost:3000/mainconcepts/12.ThinkingInReact.html)
+
+React Router examples
+
 ## Setup environment
 
-`create-react-app react-basics` to create the boilerplate
+### Dev
 
-### Add ESLint and Prettier
+`create-react-app react-basics` to create the boilerplate.
+
+It's recommended to use Visual Studio Code as the code editor.
+
+#### Add ESLint and Prettier to VS Code
 
 `npm i -D eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react`
 
@@ -27,9 +59,23 @@ in package.json
   },
 ```
 
+### Local environment
+
+Use [serve](https://www.npmjs.com/package/serve) as a static web server to start from the build folder.
+
+`npm install -g serve`
+
+`serve -s build`
+
+### Build and deploy
+
+Run `npm run build` which will prepare the deploy package in build folder.
+
+Copy the files in the build folder to the web server folder to deploy the app.
+
 ### Common Issues
 
-jsx formatting, in setting.json
+When you use auto format while saving in VS Code, for jsx files, the formatting sometimes will get wrong. Add the following in setting.json
 
 ```js
 "beautify.ignore": [
@@ -49,11 +95,9 @@ Sometimes you will see the following error:
 
 You can create a .env file and add 'SKIP_PREFLIGHT_CHECK=true'
 
-## Development
+### React Router
 
 React is for developing a single page application. `<App />` is root component. If there are different bounded domains / context, react-router can be used for routing.
-
-### React Router
 
 [React Router](https://github.com/ReactTraining/react-router)
 
@@ -89,38 +133,3 @@ Set the break points in the code, add the launch.json or it can be automatically
     ]
 }
 ```
-
-## Build
-
-`npm run build`
-
-Use [serve](https://www.npmjs.com/package/serve) as a static web server to start from the build folder.
-
-`npm install -g serve`
-
-`serve -s build`
-
-## Samples
-
-After `npm start`, click the link and view the results in browser. Check the code in the html.
-
-[simple like button](http://localhost:3000/samples/like_button.html)
-
-[tic tac toe game](http://localhost:3000/samples/tictactoe.html) is from [reactjs tutorial](https://reactjs.org/tutorial/tutorial.html)
-
-Main concept on [reactjs docs](https://reactjs.org/docs/)
-
-* [01.Hello World](http://localhost:3000/mainconcepts/01.HelloWorld.html)
-* [02.Introducing JSX](http://localhost:3000/mainconcepts/02.IntroducingJSX.html)
-* [03.Rendering Elements](http://localhost:3000/mainconcepts/03.RenderingElements.html)
-* [04.Components and Props](http://localhost:3000/mainconcepts/04.ComponentsAndProps.html)
-* [05.State and Lifecycle - Clock](http://localhost:3000/mainconcepts/05.StateAndLifecycleClock.html)
-* [06.Handling Events Toggle](http://localhost:3000/mainconcepts/06.HandlingEventsToggle.html)
-* [07.Conditional Rendering](http://localhost:3000/mainconcepts/07.ConditionalRendering.html)
-* [08.List and Keys - Blog](http://localhost:3000/mainconcepts/08.ListAndKeysBlog.html)
-* [08.List and Keys - Numbers](http://localhost:3000/mainconcepts/08.ListAndKeysNumbers.html)
-* [09.Forms Multiple Inputs](http://localhost:3000/mainconcepts/09.FormsMultipleInputs.html)
-* [09.Forms - Select](http://localhost:3000/mainconcepts/09.FormsSelect.html)
-* [10.Lifting State Up](http://localhost:3000/mainconcepts/10.LiftingStateUp.html)
-* [11.Composition vs Inheritance](http://localhost:3000/mainconcepts/11.CompositionVsInheritance.html)
-* [12.Thinking in React](http://localhost:3000/mainconcepts/12.ThinkingInReact.html)
