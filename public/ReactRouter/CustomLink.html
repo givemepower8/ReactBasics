@@ -28,11 +28,20 @@
         const CustomLinkExample = () => (
             <Router>
                 <div>
-                    <OldSchoolMenuLink activeOnlyWhenExact={true} to="/" label="Home" />
-                    <OldSchoolMenuLink to="/about" label="About" />
+                    <OldSchoolMenuLink 
+                        activeOnlyWhenExact={true} 
+                        to="/" 
+                        label="Home" />
+                    <OldSchoolMenuLink 
+                        to="/about" 
+                        label="About" />
                     <hr />
-                    <Route exact path="/" component={Home} />
-                    <Route path="/about" component={About} />
+                    <Route exact 
+                        path="/" 
+                        component={Home} />
+                    <Route 
+                        path="/about" 
+                        component={About} />
                 </div>
             </Router>
         );
@@ -42,10 +51,10 @@
                 path={to}
                 exact={activeOnlyWhenExact}
                 children={({ match }) => (
-                <div className={match ? "active" : ""}>
-                    {match ? "> " : ""}
-                    <Link to={to}>{label}</Link>
-                </div>
+                    <div className={match ? "active" : ""}>
+                        {match ? "> " : ""}
+                        <Link to={to}>{label}</Link>
+                    </div>
                 )}
             />
         );
