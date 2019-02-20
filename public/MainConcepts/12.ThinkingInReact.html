@@ -1,24 +1,25 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="UTF-8" />
-    <title>12.Thinking in React</title>
-    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js" crossorigin></script>
-    <style>
-        body {
+  <meta charset="UTF-8" />
+  <title>12.Thinking in React</title>
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js" crossorigin></script>
+  <style>
+    body {
             padding: 5px
         }
     </style>
 </head>
 
 <body>
-    <div id="container">
-        <!-- This element's contents will be replaced with your component. -->
-    </div>
+  <div id="container">
+    <!-- This element's contents will be replaced with your component. -->
+  </div>
 
-    <script type="text/babel">
+  <script type="text/babel">
     class ProductCategoryRow extends React.Component {
       render() {
         const category = this.props.category;
@@ -191,6 +192,7 @@
       document.getElementById('container')
     );
 
-    </script>
+  </script>
 </body>
+
 </html>

@@ -16,15 +16,14 @@
   </div>
 
   <script type="text/babel">
-    const Hello = (props) => { return <div>Hello {props.toWho}</div> };
-
-    ReactDOM.render(<Hello toWho="World" />, document.getElementById('root'));
-
     // ReactDOM.render(
     //   <h1>Hello, world!</h1>,
     //   document.getElementById('root')
     // );
 
+    const Hello = (props) => { return <div>Hello {props.toWho}</div> };
+
+    ReactDOM.render(<Hello toWho="World" />, document.getElementById('root'));
   </script>
 </body>
 
