@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-import SamplePageNav from './SamplePageNav';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import SamplePageNav from './components/SamplePageNav';
 import './css/App.css';
 
 const Home = () => (
   <div>
-      <h2>Home</h2>
+    <h2>Home</h2>
   </div>
 );
 class App extends Component {
@@ -13,19 +13,19 @@ class App extends Component {
     return (
       <Router>
         <div>
-            <ul>
-                <li>
-                    <Link to="/">Home</Link>
-                </li>
-                <li>
-                    <Link to="/samples">samples</Link>
-                </li>                        
-            </ul>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/samples">Samples</Link>
+            </li>
+          </ul>
 
-            <hr />
+          <hr />
 
-            <Route exact path="/" component={Home} />
-            <Route path="/samples" component={SamplePageNav} />                   
+          <Route exact path="/" component={Home} />
+          <Route path="/samples" component={SamplePageNav} />
         </div>
       </Router>
     );
