@@ -41,8 +41,8 @@ const reactRouterExamples =  (
 const samples =  (
     <fieldset> 
       <legend>Samples</legend>     
-      <a target="_blank" href="./samples/like_button.html">Like button</a><br/>
-      <a target="_blank" href="./samples/tictactoe.html">Tic Tac Toe game</a><br/>   
+      <a target="_blank" href="./Samples/LikeButton.html">Like button</a><br/>
+      <a target="_blank" href="./Samples/TicTacToe.html">Tic Tac Toe game</a><br/>   
     </fieldset>
   );
 
