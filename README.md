@@ -6,7 +6,7 @@ You can run the samples locally. Also the site is hosted on [http://reactbasics.
 
 After `npm start`, click the link and view the results in browser. Check the code in the html.
 
-- [Like button](http://localhost:3000/samples/like_button.html)
+- [Like button](http://localhost:3000/samples/LikeButton.html)
 - [Tic Tac Toe game](http://localhost:3000/samples/tictactoe.html) is from [reactjs tutorial](https://reactjs.org/tutorial/tutorial.html)
 
 Main concepts on [reactjs docs](https://reactjs.org/docs/)
