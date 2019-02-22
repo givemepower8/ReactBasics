@@ -13,5 +13,15 @@
         "reactjs",
         "reacttraining",
         "unmount"
-    ]
+    ],
+    "beautify.language": {
+        "html": ["html", "htm"],
+        "css": [],
+        "js": []
+    },
+    "beautify.ignore": ["**/*.js", "**/*.jsx"],
+    "files.associations": {
+        "*.js": "javascriptreact"
+    },
+    "editor.formatOnSave": true
 }
