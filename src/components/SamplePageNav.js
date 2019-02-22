@@ -134,6 +134,10 @@ const samples = (
             Form Registration Validation
         </a>
         <br />
+        <a target="_blank" href="./Samples/SimpleFetch.html">
+            Simple Fetch
+        </a>
+        <br />
     </fieldset>
 )
 
