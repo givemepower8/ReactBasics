@@ -138,6 +138,10 @@ const samples = (
             Simple Fetch
         </a>
         <br />
+        <a target="_blank" href="./Samples/SimpleAxios.html">
+            Simple Axios
+        </a>
+        <br />
     </fieldset>
 )
 
