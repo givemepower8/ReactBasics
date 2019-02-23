@@ -1,14 +1,10 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import { Menu } from 'semantic-ui-react';
-import SamplePageNav from './components/SamplePageNav';
-import './css/App.css';
+import React, { Component } from 'react'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { Menu } from 'semantic-ui-react'
+import HomePage from './components/HomePage'
+import SamplesPage from './components/SamplesPage'
+import './css/App.css'
 
-const Home = () => (
-  <div>
-    <h2>Home</h2>
-  </div>
-);
 class App extends Component {
   render() {
     return (
@@ -23,12 +19,12 @@ class App extends Component {
             </Menu.Item>
           </Menu>
 
-          <Route exact path="/" component={Home} />
-          <Route path="/samples" component={SamplePageNav} />
+          <Route exact path="/" component={HomePage} />
+          <Route path="/samples" component={SamplesPage} />
         </div>
       </Router>
-    );
+    )
   }
 }
 
-export default App;
+export default App
