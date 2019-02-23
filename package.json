@@ -1,6 +1,7 @@
 {
   "name": "react-basics",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "homepage": "http://reactbasics.gingerstudio.net",
   "private": true,
   "dependencies": {
     "@types/jest": "^24.0.5",
