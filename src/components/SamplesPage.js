@@ -139,6 +139,10 @@ const samples = (
       Simple Axios
     </a>
     <br />
+    <a target="_blank" href="./Samples/TodoItems.html">
+      Todo Items
+    </a>
+    <br />
   </fieldset>
 )
 
