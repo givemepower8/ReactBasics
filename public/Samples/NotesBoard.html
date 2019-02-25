@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Notes Board Example</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js" crossorigin></script>
+    <script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@3.0.0/dist/fetch.umd.min.js" crossorigin></script>
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js" crossorigin></script>
+    <link href='https://fonts.googleapis.com/css?family=Shadows Into Light' rel='stylesheet'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+        crossorigin="anonymous">
+    <style>
+        body,
+        html,
+        div.board,
+        div#react-container {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        div.board {
+            background-color: brown;
+            width: 100%;
+            height: 1000px;
+            background: #eab92d;
+            background: -moz-radial-gradient(center, ellipse cover, #eab92d 57%, #c79810 99%);
+            background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(57%, #eab92d), color-stop(99%, #c79810));
+            background: -webkit-radial-gradient(center, ellipse cover, #eab92d 57%, #c79810 99%);
+            background: -o-radial-gradient(center, ellipse cover, #eab92d 57%, #c79810 99%);
+            background: -ms-radial-gradient(center, ellipse cover, #eab92d 57%, #c79810 99%);
+            background: radial-gradient(ellipse at center, #eab92d 57%, #c79810 99%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eab92d', endColorstr='#c79810', GradientType=1);
+
+        }
+
+        div.note {
+            height: 150px;
+            width: 150px;
+            background-color: yellow;
+            margin: 2px 0;
+            position: absolute;
+            cursor: -webkit-grab;
+            -webkit-box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
+            box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
+        }
+
+        div.note:active {
+            cursor: -webkit-grabbing;
+        }
+
+        div.note p {
+            font-size: 22px;
+            padding: 5px;
+            font-family: "Shadows Into Light", Arial;
+        }
+
+        div.note:hover > span {
+            opacity: 1;
+        }
+
+        div.note > span {
+            position: absolute;
+            bottom: 2px;
+            right: 2px;
+            opacity: 0;
+            transition: opacity .25s linear;
+        }
+
+        div.note button {
+            margin: 2px;
+        }
+
+        div.note > textarea {
+            height: 75%;
+            background: rgba(255, 255, 255, .5);
+        }
+
+        div.board button {
+        color: #fff;
+        font-size: 14px;
+        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.55);
+        }
+
+        #add {
+            background-color: #5cb85c;
+            height: 3em;
+        }
+
+        #edit {
+        background-color: #337ab7;
+        }
+
+        #save {
+        background-color: #5cb85c;
+        }
+
+        #remove {
+        background-color: #d9534f;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        class Note extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {
+                    editing: false
+                }
+                this.edit = this.edit.bind(this)
+                this.remove = this.remove.bind(this)
+                this.save = this.save.bind(this)
+                this.renderForm = this.renderForm.bind(this)
+                this.renderDisplay = this.renderDisplay.bind(this)
+                this.randomBetween = this.randomBetween.bind(this)
+            }
+
+            componentWillMount() {
+                this.style = {
+                    right: this.randomBetween(0, window.innerWidth - 150, 'px'),
+                    top: this.randomBetween(0, window.innerHeight - 150, 'px'),
+                    transform: `rotate(${this.randomBetween(-25, 25, 'deg')})`
+                }
+            }
+
+            randomBetween(x, y, s) {
+                return x + Math.ceil(Math.random() * (y-x)) + s
+            }
+
+            componentDidUpdate() {
+                var textArea
+                if(this.state.editing) {
+                    textArea = this._newText
+                    textArea.focus()
+                    textArea.select()
+                }
+
+            }
+
+            shouldComponentUpdate(nextProps, nextState) {
+                return (
+                    this.props.children !== nextProps.children || this.state !== nextState
+                )
+            }
+
+            edit() {
+                this.setState({
+                    editing: true
+                })
+            }
+
+            remove() {
+                this.props.onRemove(this.props.index)
+            }
+
+            save(e) {
+                e.preventDefault()
+                this.props.onChange(this._newText.value, this.props.index)
+                this.setState({
+                    editing: false
+                })
+            }
+
+            renderForm() {
+                return (
+                    <div className="note" style={this.style}>
+                        <form onSubmit={this.save}>
+                            <textarea ref={input => this._newText = input}
+                                    defaultValue={this.props.children}/>
+                            <button id="save"><i class="far fa-save"></i></button>
+                        </form>
+                    </div>
+                )
+            }
+
+            renderDisplay() {
+                return (
+                    <div className="note" style={this.style}>
+                        <p>{this.props.children}</p>
+                        <span>
+                            <button onClick={this.edit} id="edit"><i class="fas fa-pen-fancy"></i></button>
+                            <button onClick={this.remove} id="remove"><i class="fas fa-trash-alt"></i></button>
+                        </span>
+                    </div>
+                )
+            }
+
+            render() {
+                return this.state.editing ? this.renderForm() : this.renderDisplay()
+            }
+
+        }
+
+        class Board extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {
+                    notes: []
+                }
+                this.add = this.add.bind(this)
+                this.eachNote = this.eachNote.bind(this)
+                this.update = this.update.bind(this)
+                this.remove = this.remove.bind(this)
+                this.nextId = this.nextId.bind(this)
+            }
+
+            componentWillMount() {
+                var self = this
+                if(this.props.count) {
+                    fetch(`https://baconipsum.com/api/?type=all-meat&sentences=${this.props.count}`)
+                        .then(response => response.json())
+                        .then(json => json[0]
+                                        .split('. ')
+                                        .forEach(sentence => self.add(sentence.substring(0, 25))))
+                }
+            }
+
+            add(text) {
+                this.setState(prevState => ({
+                    notes: [
+                        ...prevState.notes,
+                        {
+                            id: this.nextId(),
+                            note: text
+                        }
+                    ]
+                }))
+            }
+
+            nextId() {
+                this.uniqueId = this.uniqueId || 0
+                return this.uniqueId++
+            }
+
+            update(newText, i) {
+                console.log('updating item at index', i, newText)
+                this.setState(prevState => ({
+                    notes: prevState.notes.map(
+                        note => (note.id !== i) ? note : {...note, note: newText}
+                    )
+                }))
+            }
+
+            remove(id) {
+                console.log('removing item at', id)
+                this.setState(prevState => ({
+                    notes: prevState.notes.filter(note => note.id !== id)
+                }))
+            }
+
+            eachNote(note, i) {
+                return (
+                    <Note key={note.id}
+                        index={note.id}
+                        onChange={this.update}
+                        onRemove={this.remove}>
+                        {note.note}
+                    </Note>
+                )
+            }
+
+            render() {
+                return (
+                    <div className="board">
+                        {this.state.notes.map(this.eachNote)}
+                        <button onClick={this.add.bind(null, "New Note")} id="add">                           
+                                <i class="far fa-plus-square"></i> Add New Note
+                        </button>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<Board count={10}/>, document.getElementById('root'))
+    </script>
+</body>
+
+</html>

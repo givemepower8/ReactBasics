@@ -143,6 +143,10 @@ const samples = (
       Todo Items
     </a>
     <br />
+    <a target="_blank" href="./Samples/NotesBoard.html">
+      Notes Board
+    </a>
+    <br />
   </fieldset>
 )
 
