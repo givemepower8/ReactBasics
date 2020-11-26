@@ -75,3 +75,4 @@ typings/
 # misc
 .DS_Store
 *.sqlite
+/.vs/ReactBasics
