@@ -7,7 +7,7 @@
     "@types/jest": "^24.0.5",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
-    "react-scripts": "2.1.5"
+    "react-scripts": "5.0.1"
   },
   "precommit": "NODE_ENV=production lint-staged",
   "lint-staged": {
